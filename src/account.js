@@ -6,7 +6,6 @@
     this.name = name;
     this.balance = 0;
     this.transactions = [];
-    var statementDisplay;
   }
 
   Account.prototype.deposit = function (amount) {
@@ -38,7 +37,7 @@
   }
 
   Account.prototype.statement = function () {
-    statementDisplay = 'date || credit || debit || balance'
+    statementDisplay = 'date || credit || debit || balance';
     this.updateStatement();
     return statementDisplay;
   };
@@ -46,7 +45,7 @@
   Account.prototype.updateStatement = function () {
     this.transactions.map(function(transaction) {
       statementDisplay += ('\n' + transaction.date + ' || ' + transaction.credit + ' || ' + transaction.debit + ' || ' + transaction.balance);
-      statementDisplay = statementDisplay.replace('undefined', ' ')
+      statementDisplay = statementDisplay.replace('undefined', ' ');
     });
   };
 
@@ -60,6 +59,7 @@
     }
     return day + "/" + month + "/" + year
   }
+
   exports.Account = Account;
 
 })(this);

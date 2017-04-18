@@ -1,6 +1,5 @@
 // "use strict";
 
-
 describe('Account', function() {
   var newAccount;
 
