@@ -31,4 +31,13 @@ describe('Account', function() {
       expect(newAccount.balance).toEqual(20);
     });
   });
+
+  describe('withdrawals', function() {
+
+    it('decreases the balance by the amount withdrawn', function() {
+      newAccount.deposit(200);
+      newAccount.withdraw(100);
+      expect(newAccount.balance).toEqual(100);
+    });
+  });
 });

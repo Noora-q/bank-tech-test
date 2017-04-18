@@ -10,16 +10,12 @@ User Stories:
 
 ```
 As an account holder
-So I can put money in
+So I can put money in my account
 I want to be able to make a deposit
 
 As an account holder
-So I can take money out
+So I can take money out of my account
 I want to be able to make a withdrawal
-
-As an account holder
-So I can see a summary of my spending
-I want to be able to see my account statement
 
 As an account holder
 So I can see how much money I've spent
@@ -34,6 +30,6 @@ So I can see how much my money I have left
 I want to be able to see my final balance
 
 As an account holder
-So I track my spending
+So I see a summary of my spending
 I want to be able to see a printed account statement
 ```
