@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 
 
 describe('Account', function() {
@@ -93,6 +93,14 @@ describe('Account', function() {
       it('a debit transaction has an associated date', function() {
         expect(newAccount.transactions[1].date).toEqual('19/03/2017');
       });
+    });
+  });
+
+  describe('statement', function() {
+    it('shows all the transactions with type, balance and date', function() {
+      newAccount.deposit(200);
+      newAccount.withdraw(100);
+      expect(newAccount.statement()).toEqual('date || credit || debit || balance' + '\n' + '19/03/2017 || 200 ||   || 200' + '\n' + '19/03/2017 ||   || 100 || 100');
     });
   });
 });

@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 
 (function(exports) {
 
@@ -6,6 +6,7 @@
     this.name = name;
     this.balance = 0;
     this.transactions = [];
+    var statementDisplay;
   }
 
   Account.prototype.deposit = function (amount) {
@@ -17,24 +18,37 @@
 
   };
 
-  Account.prototype.calculateBalance = function (kind_of_transaction, amount) {
-    if (kind_of_transaction === 'credit') {
+  Account.prototype.calculateBalance = function (type_of_transaction, amount) {
+    if (type_of_transaction === 'credit') {
       return this.balance += amount;
     }
-    else if (kind_of_transaction === 'debit') {
+    else if (type_of_transaction === 'debit') {
       return this.balance -= amount;
     }
   };
 
-  Account.prototype.newTransaction = function (kind_of_transaction, amount) {
+  Account.prototype.newTransaction = function (type_of_transaction, amount) {
     var transaction = {
-      [kind_of_transaction]: amount,
-      balance: this.calculateBalance(kind_of_transaction, amount),
+      [type_of_transaction]: amount,
+      balance: this.calculateBalance(type_of_transaction, amount),
       date: convertDateToString(new Date())
     };
 
     this.transactions.push(transaction);
   }
+
+  Account.prototype.statement = function () {
+    statementDisplay = 'date || credit || debit || balance'
+    this.updateStatement();
+    return statementDisplay;
+  };
+
+  Account.prototype.updateStatement = function () {
+    this.transactions.map(function(transaction) {
+      statementDisplay += ('\n' + transaction.date + ' || ' + transaction.credit + ' || ' + transaction.debit + ' || ' + transaction.balance);
+      statementDisplay = statementDisplay.replace('undefined', ' ')
+    });
+  };
 
   function convertDateToString(date) {
     var day = date.getDate()
