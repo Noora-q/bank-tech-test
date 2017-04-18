@@ -23,4 +23,12 @@ describe('Account', function() {
   it('has an empty array of transactions by default', function(){
     expect(newAccount.transactions).toEqual([]);
   });
+
+  describe('deposits', function() {
+
+    it('increases the balance by the amount deposited', function() {
+      newAccount.deposit(20);
+      expect(newAccount.balance).toEqual(20);
+    });
+  });
 });
