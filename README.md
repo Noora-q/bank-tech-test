@@ -32,4 +32,8 @@ I want to be able to see the dates of my transactions
 As an account holder
 So I can see how much my money I have left
 I want to be able to see my final balance
+
+As an account holder
+So I track my spending
+I want to be able to see a printed account statement
 ```
